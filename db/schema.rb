@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2020_09_18_155734) do
 
-  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
     t.string "title", default: ""
     t.string "author", default: ""
     t.string "genre", default: ""
