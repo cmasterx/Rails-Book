@@ -1,0 +1,50 @@
+<h5><%= link_to('<< Back to Main Page', {controller: :home}, class: 'home-page') %></h5>
+
+
+
+<div class="books new">
+  <h4>Add a New Book</h4>
+
+  <%# <%= form_for(@subject, :url => subjects_path, :method => 'post') do |f| %>
+  <%= form_for(@book, :url => '/home/create', :method => 'post') do |f| %>
+
+    <table summary="Books form fields">
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Author</th>
+        <td><%= f.text_field(:author) %></td>
+      </tr>
+      <tr>
+        <th>Genre</th>
+        <td>
+        <%= select_tag(:genre, options_for_select(@genre_list)) %>
+        <%# <select id="book_genre" name="book[genre]">
+          <option value="Fantasy">Fantasy</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Non Fiction">Non Fiction</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Other">Other</option>
+        </select> %>
+        </td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td><%= f.number_field(:price, step: 0.01) %></td>
+      </tr>
+      <tr>
+        <th>Published Date</th>
+        <td><%= f.text_field(:published_date) %></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Add Book") %>
+    </div>
+
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<h5><%= link_to('<< Back to Main Page', {controller: :home}, class: 'home-page') %></h5>
+
+<h1><u><%= @book.title %></u></h1>
+<h2><%= @book.author.nil? ? 'No author listed' : 'By: ' + @book.author %></h2>
+
+<h3>Price: $ <%= @book.price %></h3>
+<h3>Genre: <%= @book.genre %></h3>
+<h3>Published Date: <%= @book.published_date.nil? ? 'None on record' : @book.published_date %></h3>
+<br>
+<h2>Story</h2>
+<p>
+<%= @book.story %>
+</p>
